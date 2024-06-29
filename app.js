@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const express = require ("express")
 const cors = require ("cors")
 const app = express()
+
 const { usermodel } = require("./models/users")
 const { postmodel } = require("./models/posts")
 const bcryptjs = require("bcryptjs")
@@ -27,11 +28,11 @@ app.post("/signup", async (req, res) => {
     res.json({ "status": "success" })
 })
 
-app.post("/add", (req, res) => {
+app.post("/addpost", (req, res) => {
     let input = req.body
     let posts = new postmodel(input)
     buses.save()
-    console.log(postss)
+    console.log(posts)
     res.json({ "status": "success" })
 })
 
@@ -39,3 +40,4 @@ app.post("/add", (req, res) => {
 app.listen(8080, () => {
     console.log("Server started on port 8080")
 })
+
